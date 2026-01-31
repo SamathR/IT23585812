@@ -234,7 +234,27 @@ test.describe('Positive Functional Tests – Singlish to Sinhala', () => {
   });
 
 
-  test('POS_FUN_0024 - Convert mixed English technical terms sentence ', async ({ page }) => {
+  test('POS_FUN_0024 - Convert sentence with currency and number format ', async ({ page }) => {
+    await page.goto('https://www.swifttranslator.com/', { timeout: 60000 });
+
+    await page.fill('textarea', 'poth pahak Rs.1200 k kivvaa');
+    await page.waitForTimeout(4000);
+
+    await expect(page.locator('body')).toContainText('පොත් පහක් Rs.1200 ක් කිව්වා');
+  });
+
+
+  test('POS_FUN_0025 - Convert mixed English technical terms sentence ', async ({ page }) => {
+    await page.goto('https://www.swifttranslator.com/', { timeout: 60000 });
+
+    await page.fill('textarea', 'magee phone ekata WiFi connect venne naehae');
+    await page.waitForTimeout(4000);
+
+    await expect(page.locator('body')).toContainText('මගේ phone එකට WiFi connect වෙන්නෙ නැහැ');
+  });
+
+
+  test('POS_UI_0001 - Convert mixed English technical terms sentence ', async ({ page }) => {
     await page.goto('https://www.swifttranslator.com/', { timeout: 60000 });
 
     await page.fill('textarea', 'magee phone ekata WiFi connect venne naehae');
