@@ -18,7 +18,7 @@ test.describe('Positive Functional Tests – Singlish to Sinhala', () => {
     await page.goto('https://www.swifttranslator.com/');
     await page.fill('textarea', 'mama gedhara yanavaa');
     await page.waitForTimeout(3000);
-    expect(await getSinhalaOutput(page)).toContain('ම');
+    expect(await getSinhalaOutput(page)).toContain('මම ගෙදර යනවා');
   });
 
   test('POS_FUN_0003 - Polite request', async ({ page }) => {
@@ -91,14 +91,14 @@ test.describe('Positive Functional Tests – Singlish to Sinhala', () => {
     expect((await getSinhalaOutput(page)).length).toBeGreaterThan(5);
   });
 
-  test('POS_FUN_0013 - Brand term', async ({ page }) => {
+  test('POS_FUN_0013 -Mixed language with Brand term', async ({ page }) => {
     await page.goto('https://www.swifttranslator.com/');
     await page.fill('textarea', 'mata WhatsApp ekak evanna puLuvandha?');
     await page.waitForTimeout(3000);
     expect(await getSinhalaOutput(page)).toContain('WhatsApp');
   });
 
-  test('POS_FUN_0014 - Measurement units', async ({ page }) => {
+  test('POS_FUN_0014 - Convert sentence with Measurement units', async ({ page }) => {
     await page.goto('https://www.swifttranslator.com/');
     await page.fill('textarea', 'siini 8kg k saha parippu 2kg k ganna');
     await page.waitForTimeout(3000);
